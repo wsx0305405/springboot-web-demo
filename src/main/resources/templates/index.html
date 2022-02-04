@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymefeaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title> index </title>
+</head>
+<body>
+    <form th:action="@{/user/login}">
+        <h1 class=""> sign in </h1>
+        <p style="color: crimson" th:text="${msg}"></p>
+        <label class="">Username</label>
+        <input type="text" name="username" class="" placeholder="Username" required><br>
+        <label class="">Password</label>
+        <input type="password" name="password" class="" placeholder="Password" required>
+        <div class="">
+            <label>
+                <input type="checkbox" value="remerber-me"> Remember me
+            </label>
+        </div>
+        <button class="" type="submit"> Sign in </button>
+    </form>
+
+</body>
+</html>

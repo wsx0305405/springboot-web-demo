@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymefeaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title> list </title>
+</head>
+<body>
+<div class="container-fluid">
+    <main role="main" class="col-md-9 ml-sm-auto clo-lg-10 pt-3 px-4">
+        <a class="btn btn-sm btn-success" th:href="@{/emp}"> 添加員工 </a>
+        <div class="table-responsive">
+            <table class="table table-striped table-sm">
+                <thead>
+                <tr>
+                    <th>id</th>
+                    <th>lastName</th>
+                    <th>email</th>
+                    <th>gender</th>
+                    <th>department</th>
+                    <th>birth</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="emp:${emps}"><br>
+                    <td th:text="${emp.getId()}"></td>
+                    <td th:text="${emp.getLastName()}"></td>
+                    <td th:text="${emp.getEmail()}"></td>
+                    <td th:text="${emp.getGender()==0?'女':'男'}"></td>
+                    <td th:text="${emp.department.getDepartmentName()}"></td>
+                    <!--                <td th:text="${#dates.format(emp.getBirth(),'yyyy-MM-dd HH:mm:ss')}"></td>-->
+                    <td th:text="${#dates.format(emp.getBirth(),'yyyy-MM-dd')}"></td>
+                    <!--                <td th:text="${emp.getBirth()}"></td>-->
+                    <td>
+                        <a class="btn btn-sm btm-primery" th:href="@{/emp/{id}(id=${emp.getId()})}">編輯</a>
+                        <a class="btn btn-sm btm-danger" th:href="@{/delemp/{id}(id=${emp.getId()})}">刪除</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</div>
+
+
+
+</body>
+</html>
